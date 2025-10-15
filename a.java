@@ -189,4 +189,19 @@ public class RedactedHelper {
         p.setProcessInstanceVariable(varId, varName, varDto);
     }
 
+    @Step("redacted string")
+    public void deleteProcessInstance(@NotNull String businessKey, @NotNull String processDefinitionKey) {
+        DeleteProcessInstancesDto delInstancesDto = new DeleteProcessInstancesDto();
+        List<ProcessInstanceDto> ins = getProcessInstances(businessKey, processDefinitionKey);
+        for (ProcessInstanceDto i : ins) {
+            delInstancesDto.addProcessInstanceIdsItem(i.getId());
+        }
+        if (!Objects.requireNonNull(delInstancesDto.getProcessInstanceIds()).isEmpty()) {
+            delInstancesDto.setSkipCustomListeners(true);
+            delInstancesDto.setSkipSubprocesses(true);
+            delInstancesDto.setDeleteReason("redacted string");
+            deleteProcessInstances(delInstancesDto);
+        }
+    }
+
 }
