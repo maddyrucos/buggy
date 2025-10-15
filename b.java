@@ -7,7 +7,7 @@ import steps.RunnerExtension;
 
 import java.util.UUID;
 
-import static steps.RedactedProcess.deleteProcessInstance;
+import a.deleteProcessInstance;
 
 @ExtendWith(RunnerExtension.class)
 public class BaseTest {
@@ -17,7 +17,7 @@ public class BaseTest {
 
     @AfterEach
     @Step("redacted string")
-    void deleteInstance() {
+    static void deleteInstance() {
         if (!assertionFailureHappened) {
             deleteProcessInstance(documentId, processName);
         }
