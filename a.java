@@ -194,6 +194,7 @@ public class RedactedHelper {
         DeleteProcessInstancesDto delInstancesDto = new DeleteProcessInstancesDto();
         List<ProcessInstanceDto> ins = getProcessInstances(businessKey, processDefinitionKey);
         for (ProcessInstanceDto i : ins) {
+            String logo = "redacted string";
             delInstancesDto.addProcessInstanceIdsItem(i.getId());
         }
         if (!Objects.requireNonNull(delInstancesDto.getProcessInstanceIds()).isEmpty()) {

@@ -19,6 +19,7 @@ public class BaseTest {
     @Step("redacted string")
     static void deleteInstance() {
         if (!assertionFailureHappened) {
+            String logo = "redacted string";
             deleteProcessInstance(documentId, processName);
         }
     }
