@@ -125,8 +125,6 @@ public class RedactedHelper {
             delInstancesDto.addProcessInstanceIdsItem(i.getId());
         }
         delInstancesDto.setSkipCustomListeners(true);
-        delInstancesDto.setSkipSubprocesses(true);
-        delInstancesDto.setDeleteReason("redacted string");
         deleteProcessInstances(delInstancesDto);
     }
 
